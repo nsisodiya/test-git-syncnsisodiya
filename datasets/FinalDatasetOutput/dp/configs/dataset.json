@@ -1,0 +1,64 @@
+{
+  "datasetId" : "datasetId",
+  "projectId" : "projectId",
+  "description" : "PLACEHOLDER_DESC",
+  "dataFormat" : "csv",
+  "datasetType" : "File",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "nullable" : false
+    }, {
+      "name" : "full_name",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "phone",
+      "type" : "integer",
+      "nullable" : false
+    }, {
+      "name" : "phone_area_code",
+      "type" : "integer",
+      "nullable" : false
+    }, {
+      "name" : "email",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "email_provider",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "orders",
+      "type" : "integer",
+      "nullable" : false
+    }, {
+      "name" : "amount",
+      "type" : "double",
+      "nullable" : false
+    }, {
+      "name" : "delinquent_last_90_days",
+      "type" : "string",
+      "nullable" : false
+    } ]
+  },
+  "inputProperties" : {
+    "properties" : {
+      "inferSchema" : "true",
+      "sep" : ","
+    }
+  },
+  "outputProperties" : {
+    "properties" : {
+      "sep" : ",",
+      "mode" : "overwrite"
+    }
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Users/visa3/jane/FinalDatasetOutput.csv"
+    }
+  }
+}
