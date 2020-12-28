@@ -1,0 +1,51 @@
+{
+  "datasetId" : "datasetId",
+  "projectId" : "projectId",
+  "description" : "PLACEHOLDER_DESC",
+  "dataFormat" : "csv",
+  "datasetType" : "File",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "order_id",
+      "type" : "integer",
+      "nullable" : false
+    }, {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : false
+    }, {
+      "name" : "order_status",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "order_category",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "order_date",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "amount",
+      "type" : "double",
+      "nullable" : false
+    } ]
+  },
+  "inputProperties" : {
+    "properties" : {
+      "inferSchema" : "true",
+      "sep" : ","
+    }
+  },
+  "outputProperties" : {
+    "properties" : {
+      "sep" : ","
+    }
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Users/visa3/jane/OrdersDatasetInput.csv"
+    }
+  }
+}
