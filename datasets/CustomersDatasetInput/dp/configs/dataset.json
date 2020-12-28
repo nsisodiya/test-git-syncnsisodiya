@@ -1,0 +1,59 @@
+{
+  "datasetId" : "datasetId",
+  "projectId" : "projectId",
+  "description" : "PLACEHOLDER_DESC",
+  "dataFormat" : "csv",
+  "datasetType" : "File",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : false
+    }, {
+      "name" : "first_name",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "last_name",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "phone",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "email",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "country_code",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "account_open_date",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "account_flags",
+      "type" : "string",
+      "nullable" : false
+    } ]
+  },
+  "inputProperties" : {
+    "properties" : {
+      "inferSchema" : "true",
+      "sep" : ","
+    }
+  },
+  "outputProperties" : {
+    "properties" : {
+      "sep" : ","
+    }
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Users/visa3/jane/CustomersDatasetInput.csv"
+    }
+  }
+}
