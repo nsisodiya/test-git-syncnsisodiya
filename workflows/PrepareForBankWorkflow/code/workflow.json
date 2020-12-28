@@ -1,0 +1,350 @@
+{
+  "graph" : {
+    "processes" : {
+      "FinalDatasetOutput" : {
+        "component" : "Target",
+        "group" : null,
+        "subcat" : null,
+        "ignore" : false,
+        "variables" : null,
+        "properties" : {
+          "src_desc" : "FinalDataset",
+          "phase" : 0,
+          "ramp" : 0,
+          "version" : 1,
+          "id" : "12",
+          "limit" : 0
+        },
+        "metadata" : {
+          "label" : "FinalDataset",
+          "x" : 251,
+          "y" : 42
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
+        },
+        "lineage" : ""
+      },
+      "FilterComponent" : {
+        "component" : "Filter",
+        "group" : null,
+        "subcat" : null,
+        "ignore" : false,
+        "variables" : null,
+        "properties" : {
+          "src_desc" : "FilterComponent",
+          "phase" : 0,
+          "ramp" : 0,
+          "condition" : [ {
+            "format" : "spark",
+            "expr" : "trim(col(\"account_flags\")) === lit(\"00344\") === lit(\"00344\") === lit(\"00344\") === lit(\"00344\")"
+          } ],
+          "limit" : 0
+        },
+        "metadata" : {
+          "label" : "FilterComponent",
+          "x" : 251,
+          "y" : 154
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "AggReportComponent" : {
+        "component" : "Aggregate",
+        "group" : null,
+        "subcat" : null,
+        "ignore" : false,
+        "variables" : null,
+        "properties" : {
+          "src_desc" : "AggReportComponent",
+          "phase" : 0,
+          "ramp" : 0,
+          "columns" : [ {
+            "format" : "sql",
+            "expr" : "id"
+          } ],
+          "aggcols" : [ {
+            "format" : "spark",
+            "expr" : "lit(\"VAT_Summary_Report\").as(\"report_title\")"
+          }, {
+            "format" : "spark",
+            "expr" : "count(col(\"id\")).as(\"customers\")"
+          }, {
+            "format" : "spark",
+            "expr" : "sum(col(\"amount\")).as(\"amount_total\")"
+          }, {
+            "format" : "spark",
+            "expr" : "sum(col(\"orders\")).as(\"orders_total\")"
+          } ],
+          "limit" : 0
+        },
+        "metadata" : {
+          "label" : "AggReportComponent",
+          "x" : 373,
+          "y" : 154
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "PrepareComponent" : {
+        "component" : "Reformat",
+        "group" : null,
+        "subcat" : null,
+        "ignore" : false,
+        "variables" : null,
+        "properties" : {
+          "src_desc" : "PrepareComponent",
+          "phase" : 0,
+          "ramp" : 0,
+          "udf_definitions" : [ ],
+          "functions" : [ {
+            "addReplaceColumn" : "id",
+            "functionName" : "column_expression",
+            "inputArgs" : [ {
+              "type" : "pass",
+              "expr" : "substring(col(\"customer_id\"), 10, 12)"
+            } ],
+            "comment" : null,
+            "enabled" : true,
+            "id" : null
+          }, {
+            "addReplaceColumn" : "full_name",
+            "functionName" : "column_expression",
+            "inputArgs" : [ {
+              "type" : "pass",
+              "expr" : "concat(col(\"first_name\"), lit(\" \"), col(\"last_name\"))"
+            } ],
+            "comment" : null,
+            "enabled" : true,
+            "id" : null
+          }, {
+            "addReplaceColumn" : "phone",
+            "functionName" : "column_expression",
+            "inputArgs" : [ {
+              "type" : "pass",
+              "expr" : "substring(col(\"phone\"), 2, 10)"
+            } ],
+            "comment" : null,
+            "enabled" : true,
+            "id" : null
+          }, {
+            "addReplaceColumn" : "phone_area_code",
+            "functionName" : "column_expression",
+            "inputArgs" : [ {
+              "type" : "pass",
+              "expr" : "substring(col(\"phone\"), 0, 2)"
+            } ],
+            "comment" : null,
+            "enabled" : true,
+            "id" : null
+          }, {
+            "addReplaceColumn" : "email",
+            "functionName" : "column_expression",
+            "inputArgs" : [ {
+              "type" : "pass",
+              "expr" : "col(\"email\")"
+            } ],
+            "comment" : null,
+            "enabled" : true,
+            "id" : null
+          }, {
+            "addReplaceColumn" : "email_provider",
+            "functionName" : "column_expression",
+            "inputArgs" : [ {
+              "type" : "pass",
+              "expr" : "col(\"email\")"
+            } ],
+            "comment" : null,
+            "enabled" : true,
+            "id" : null
+          }, {
+            "addReplaceColumn" : "orders",
+            "functionName" : "column_expression",
+            "inputArgs" : [ {
+              "type" : "pass",
+              "expr" : "col(\"orders\")"
+            } ],
+            "comment" : null,
+            "enabled" : true,
+            "id" : null
+          }, {
+            "addReplaceColumn" : "amount",
+            "functionName" : "column_expression",
+            "inputArgs" : [ {
+              "type" : "pass",
+              "expr" : "col(\"amount\")"
+            } ],
+            "comment" : null,
+            "enabled" : true,
+            "id" : null
+          }, {
+            "addReplaceColumn" : "delinquent_last_90_days",
+            "functionName" : "column_expression",
+            "inputArgs" : [ {
+              "type" : "pass",
+              "expr" : "when(substring(col(\"account_flags\"), 1, 1) === \"D\", lit(\"Y\")).otherwise(lit(\"N\"))"
+            } ],
+            "comment" : null,
+            "enabled" : true,
+            "id" : null
+          } ],
+          "limit" : 0
+        },
+        "metadata" : {
+          "label" : "PrepareComponent",
+          "x" : 129,
+          "y" : 98
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "CustomerOrdersDatasetInput" : {
+        "component" : "Source",
+        "group" : null,
+        "subcat" : null,
+        "ignore" : false,
+        "variables" : null,
+        "properties" : {
+          "src_desc" : "CustomerOrdersDatasetInput",
+          "phase" : 0,
+          "ramp" : 0,
+          "version" : 2,
+          "id" : "10",
+          "limit" : 0
+        },
+        "metadata" : {
+          "label" : "CustomerOrdersDatasetInput",
+          "x" : 7,
+          "y" : 98
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "ReportDatasetOutput" : {
+        "component" : "Target",
+        "group" : null,
+        "subcat" : null,
+        "ignore" : false,
+        "variables" : null,
+        "properties" : {
+          "src_desc" : "ReportDataset",
+          "phase" : 0,
+          "ramp" : 0,
+          "version" : 1,
+          "id" : "11",
+          "limit" : 0
+        },
+        "metadata" : {
+          "label" : "ReportDataset",
+          "x" : 495,
+          "y" : 154
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
+        },
+        "lineage" : ""
+      }
+    },
+    "connections" : [ {
+      "src" : {
+        "process" : "CustomerOrdersDatasetInput",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "PrepareComponent",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e1"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "PrepareComponent",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "FinalDatasetOutput",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e2"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "PrepareComponent",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "FilterComponent",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e3"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "FilterComponent",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "AggReportComponent",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e4"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "AggReportComponent",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "ReportDatasetOutput",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e5"
+      },
+      "lineage" : ""
+    } ],
+    "groups" : [ ],
+    "locked" : false,
+    "metainfo" : {
+      "lastUpdated" : null,
+      "id" : "id",
+      "memory" : 1,
+      "imported" : true,
+      "changed" : false,
+      "language" : "scala",
+      "processors" : 1,
+      "metastore" : "",
+      "temp_storage_type" : "",
+      "temp_storage_url" : "",
+      "check_phases" : false,
+      "cluster" : "local",
+      "mode" : "batch",
+      "submode" : ""
+    },
+    "inports" : { },
+    "outports" : { },
+    "codeId" : ""
+  }
+}

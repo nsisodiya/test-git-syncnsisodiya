@@ -1,0 +1,143 @@
+[ {
+  "id" : "6",
+  "schema" : [ {
+    "column" : "id",
+    "colType" : "IntegerType",
+    "nullable" : false
+  }, {
+    "column" : "full_name",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "phone_area_code",
+    "colType" : "IntegerType",
+    "nullable" : false
+  }, {
+    "column" : "phone",
+    "colType" : "IntegerType",
+    "nullable" : false
+  }, {
+    "column" : "email",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "email_provider",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "orders",
+    "colType" : "IntegerType",
+    "nullable" : false
+  }, {
+    "column" : "amount",
+    "colType" : "DoubleType",
+    "nullable" : false
+  }, {
+    "column" : "delinquent_last_90_days",
+    "colType" : "StringType",
+    "nullable" : false
+  } ],
+  "version" : 0,
+  "filename" : "ReportDatasetOutput",
+  "location" : "file:///OrdersDatasetInput",
+  "isInput" : false,
+  "datasetType" : "File",
+  "dataFormat" : "csv",
+  "extraPropMap" : { }
+}, {
+  "id" : "5",
+  "schema" : [ {
+    "column" : "customer_id",
+    "colType" : "IntegerType",
+    "nullable" : false
+  }, {
+    "column" : "first_name",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "last_name",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "phone",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "email",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "country_code",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "account_open_date",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "account_flags",
+    "colType" : "StringType",
+    "nullable" : false
+  } ],
+  "version" : 0,
+  "filename" : "FinalDatasetOutput",
+  "location" : "file:///FinalDatasetOutput",
+  "isInput" : false,
+  "datasetType" : "File",
+  "dataFormat" : "csv",
+  "extraPropMap" : { }
+}, {
+  "id" : "3",
+  "schema" : [ {
+    "column" : "order_id",
+    "colType" : "IntegerType",
+    "nullable" : false
+  }, {
+    "column" : "orders",
+    "colType" : "IntegerType",
+    "nullable" : false
+  }, {
+    "column" : "amount",
+    "colType" : "DoubleType",
+    "nullable" : false
+  }, {
+    "column" : "customer_id",
+    "colType" : "IntegerType",
+    "nullable" : false
+  }, {
+    "column" : "first_name",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "last_name",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "phone",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "email",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "country_code",
+    "colType" : "StringType",
+    "nullable" : false
+  }, {
+    "column" : "account_length_days",
+    "colType" : "IntegerType",
+    "nullable" : false
+  }, {
+    "column" : "account_flags",
+    "colType" : "StringType",
+    "nullable" : false
+  } ],
+  "version" : 0,
+  "filename" : "CustomerOrdersDatasetOutput",
+  "location" : "file:///CustomerOrdersDatasetOutput",
+  "isInput" : true,
+  "datasetType" : "File",
+  "dataFormat" : "csv",
+  "extraPropMap" : { }
+} ]
