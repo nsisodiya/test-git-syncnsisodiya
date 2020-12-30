@@ -41,9 +41,7 @@ object CustomerOrdersDatasetOutput {
         )
         in.write
           .format("csv")
-          .option("sep", ",")
-          .mode("overwrite")
-          .save("dbfs:/Users/visa3/jane/CustomerOrdersDatasetOutput.csv")
+          .save("file:///storage/livy/data/CustomerOrdersDatasetOutput.csv")
       case _ => throw new Exception("Unknown Fabric")
     }
 

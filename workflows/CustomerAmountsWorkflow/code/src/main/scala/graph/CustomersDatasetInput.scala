@@ -14,10 +14,10 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "CustomersDatasetInput", label = "CustomersDatasetInput", x = 7, y = 154, phase = 0)
+@Visual(id = "CustomersDatasetInput", label = "CustomersDatasetInput", x = 6, y = 154, phase = 0)
 object CustomersDatasetInput {
 
-  @UsesDataset(id = "1", version = 3)
+  @UsesDataset(id = "1", version = 0)
   def apply(spark: SparkSession): Source = {
     import spark.implicits._
 
@@ -39,9 +39,10 @@ object CustomersDatasetInput {
         )
         spark.read
           .format("csv")
-          .option("sep", ",")
+          .option("header", true)
+          .option("sep",    ",")
           .schema(schemaArg)
-          .load("dbfs:/Users/visa3/jane/CustomersDatasetInput.csv")
+          .load("file:///storage/livy/data/CustomersDatasetInput.csv")
           .cache()
       case _ => throw new Exception(s"The fabric '$fabric' is not handled")
     }

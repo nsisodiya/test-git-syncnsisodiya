@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>CustomerAmounts</groupId>
-    <artifactId>CustomerAmounts_2.11</artifactId>
+    <groupId>CustomerAmountsWorkflow</groupId>
+    <artifactId>CustomerAmountsWorkflow_2.11</artifactId>
     <packaging>jar</packaging>
-    <description>CustomerAmounts</description>
+    <description>CustomerAmountsWorkflow</description>
     <version>1.0</version>
-    <name>CustomerAmounts</name>
+    <name>CustomerAmountsWorkflow</name>
     <organization>
-        <name>CustomerAmounts</name>
+        <name>CustomerAmountsWorkflow</name>
     </organization>
     <properties>
         <scalaBaseVersion>2.11</scalaBaseVersion>

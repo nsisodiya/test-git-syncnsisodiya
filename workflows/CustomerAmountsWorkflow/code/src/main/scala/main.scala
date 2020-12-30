@@ -33,7 +33,7 @@ object Main {
 
     val spark: SparkSession = SparkSession
       .builder()
-      .appName("CustomerAmounts")
+      .appName("CustomerAmountsWorkflow")
       .config("spark.default.parallelism", 4)
       .enableHiveSupport()
       .getOrCreate()

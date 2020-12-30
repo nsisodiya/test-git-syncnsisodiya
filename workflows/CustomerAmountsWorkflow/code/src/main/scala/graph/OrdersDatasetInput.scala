@@ -17,7 +17,7 @@ import graph._
 @Visual(id = "OrdersDatasetInput", label = "OrdersDatasetInput", x = 7, y = 42, phase = 0)
 object OrdersDatasetInput {
 
-  @UsesDataset(id = "2", version = 2)
+  @UsesDataset(id = "3", version = 0)
   def apply(spark: SparkSession): Source = {
     import spark.implicits._
 
@@ -27,19 +27,25 @@ object OrdersDatasetInput {
       case "dp" =>
         val schemaArg = StructType(
           Array(
-            StructField("order_id",       IntegerType, false),
-            StructField("customer_id",    IntegerType, false),
-            StructField("order_status",   StringType,  false),
-            StructField("order_category", StringType,  false),
-            StructField("order_date",     StringType,  false),
-            StructField("amount",         DoubleType,  false)
+            StructField("order_id",            IntegerType, false),
+            StructField("orders",              IntegerType, false),
+            StructField("amount",              DoubleType,  false),
+            StructField("customer_id",         IntegerType, false),
+            StructField("first_name",          StringType,  false),
+            StructField("last_name",           StringType,  false),
+            StructField("phone",               StringType,  false),
+            StructField("email",               StringType,  false),
+            StructField("country_code",        StringType,  false),
+            StructField("account_length_days", IntegerType, false),
+            StructField("account_flags",       StringType,  false)
           )
         )
         spark.read
           .format("csv")
-          .option("sep", ",")
+          .option("header", true)
+          .option("sep",    ",")
           .schema(schemaArg)
-          .load("dbfs:/Users/visa3/jane/OrdersDatasetInput.csv")
+          .load("file:///storage/livy/data/CustomerOrdersDatasetOutput.csv")
           .cache()
       case _ => throw new Exception(s"The fabric '$fabric' is not handled")
     }
