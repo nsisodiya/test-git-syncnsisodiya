@@ -434,7 +434,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1609317063988,
+      "lastUpdated" : 1609317075200,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
