@@ -17,7 +17,7 @@ import graph._
 @Visual(id = "CustomerOrdersDatasetOutput", label = "CustomerOrdersDatasetOutput", x = 495, y = 98, phase = 0)
 object CustomerOrdersDatasetOutput {
 
-  @UsesDataset(id = "3", version = 3)
+  @UsesDataset(id = "3", version = 0)
   def apply(spark: SparkSession, in: DataFrame): Target = {
     import spark.implicits._
 
@@ -41,6 +41,9 @@ object CustomerOrdersDatasetOutput {
         )
         in.write
           .format("csv")
+          .option("header", true)
+          .option("sep",    ",")
+          .mode("overwrite")
           .save("file:///storage/livy/data/CustomerOrdersDatasetOutput.csv")
       case _ => throw new Exception("Unknown Fabric")
     }
