@@ -1,9 +1,5 @@
 {
-  "datasetId" : "datasetId",
-  "projectId" : "projectId",
-  "description" : "PLACEHOLDER_DESC",
-  "dataFormat" : "csv",
-  "datasetType" : "File",
+  "datasetId" : "1",
   "schema" : {
     "type" : "struct",
     "fields" : [ {
@@ -40,20 +36,19 @@
       "nullable" : false
     } ]
   },
-  "inputProperties" : {
-    "properties" : {
-      "inferSchema" : "true",
-      "sep" : ","
-    }
-  },
-  "outputProperties" : {
-    "properties" : {
-      "sep" : ","
-    }
-  },
+  "datasetType" : "File",
+  "description" : "PLACEHOLDER_DESC",
   "commonProperties" : {
     "properties" : {
-      "location" : "dbfs:/Users/visa3/jane/CustomersDatasetInput.csv"
+      "location" : "file:///storage/livy/data/CustomersDatasetInput.csv"
+    }
+  },
+  "dataFormat" : "csv",
+  "inputProperties" : {
+    "properties" : {
+      "sep" : ",",
+      "header" : "true",
+      "inferSchema" : "true"
     }
   }
 }
