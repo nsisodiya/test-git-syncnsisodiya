@@ -45,7 +45,7 @@ object OrdersDatasetInput {
           .option("header", true)
           .option("sep",    ",")
           .schema(schemaArg)
-          .load("file:///storage/livy/data/CustomerOrdersDatasetOutput.csv")
+          .load("file:///storage/livy/data/OrdersDatasetInput.csv")
           .cache()
       case _ => throw new Exception(s"The fabric '$fabric' is not handled")
     }

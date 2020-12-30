@@ -41,7 +41,7 @@ object CustomerOrdersDatasetOutput {
         )
         in.write
           .format("csv")
-          .save("file:///storage/livy/data/CustomerOrdersDatasetOutput.csv")
+          .save("file:///storage/livy/data/OrdersDatasetInput.csv")
       case _ => throw new Exception("Unknown Fabric")
     }
 
