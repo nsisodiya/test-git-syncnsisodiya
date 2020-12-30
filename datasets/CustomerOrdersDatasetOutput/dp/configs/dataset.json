@@ -56,11 +56,11 @@
     }
   },
   "dataFormat" : "csv",
-  "inputProperties" : {
+  "outputProperties" : {
     "properties" : {
+      "mode" : "overwrite",
       "sep" : ",",
-      "header" : "true",
-      "inferSchema" : "true"
+      "header" : "true"
     }
   }
 }
