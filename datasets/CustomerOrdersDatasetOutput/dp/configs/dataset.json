@@ -52,7 +52,7 @@
   "description" : "PLACEHOLDER_DESC",
   "commonProperties" : {
     "properties" : {
-      "location" : "file:///storage/livy/data/OrdersDatasetInput.csv"
+      "location" : "file:///storage/livy/data/CustomerOrdersDatasetOutput.csv"
     }
   },
   "dataFormat" : "csv",
