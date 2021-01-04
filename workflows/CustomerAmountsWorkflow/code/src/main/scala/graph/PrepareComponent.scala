@@ -14,7 +14,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "PrepareComponent", label = "PrepareComponent", x = 251, y = 117, phase = 0)
+@Visual(id = "PrepareComponent", label = "PrepareComponent", x = 251, y = 116, phase = 0)
 object PrepareComponent {
 
   def apply(spark: SparkSession, in: DataFrame): Reformat = {
