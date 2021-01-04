@@ -356,7 +356,7 @@
         "metadata" : {
           "label" : "PrepareComponent",
           "x" : 251,
-          "y" : 98
+          "y" : 117
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -434,7 +434,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1609317281946,
+      "lastUpdated" : 1609749333522,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
