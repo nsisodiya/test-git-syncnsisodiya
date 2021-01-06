@@ -274,16 +274,8 @@
               "expr" : "datediff(current_date(), col(\"account_open_date\"))"
             } ],
             "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "order_id",
-            "functionName" : "column_expression",
-            "inputArgs" : [ {
-              "type" : "pass",
-              "expr" : "col(\"order_id\")"
-            } ],
-            "comment" : null,
-            "enabled" : true
+            "enabled" : true,
+            "disabled" : false
           }, {
             "addReplaceColumn" : "customer_id",
             "functionName" : "column_expression",
@@ -292,7 +284,8 @@
               "expr" : "col(\"customer_id\")"
             } ],
             "comment" : null,
-            "enabled" : true
+            "enabled" : true,
+            "disabled" : false
           }, {
             "addReplaceColumn" : "amount",
             "functionName" : "column_expression",
@@ -301,7 +294,8 @@
               "expr" : "col(\"amount\")"
             } ],
             "comment" : null,
-            "enabled" : true
+            "enabled" : true,
+            "disabled" : false
           }, {
             "addReplaceColumn" : "first_name",
             "functionName" : "column_expression",
@@ -310,7 +304,8 @@
               "expr" : "col(\"first_name\")"
             } ],
             "comment" : null,
-            "enabled" : true
+            "enabled" : true,
+            "disabled" : false
           }, {
             "addReplaceColumn" : "last_name",
             "functionName" : "column_expression",
@@ -319,7 +314,8 @@
               "expr" : "col(\"last_name\")"
             } ],
             "comment" : null,
-            "enabled" : true
+            "enabled" : true,
+            "disabled" : false
           }, {
             "addReplaceColumn" : "phone",
             "functionName" : "column_expression",
@@ -328,7 +324,8 @@
               "expr" : "col(\"phone\")"
             } ],
             "comment" : null,
-            "enabled" : true
+            "enabled" : true,
+            "disabled" : false
           }, {
             "addReplaceColumn" : "email",
             "functionName" : "column_expression",
@@ -337,7 +334,8 @@
               "expr" : "col(\"email\")"
             } ],
             "comment" : null,
-            "enabled" : true
+            "enabled" : true,
+            "disabled" : false
           }, {
             "addReplaceColumn" : "country_code",
             "functionName" : "column_expression",
@@ -346,7 +344,8 @@
               "expr" : "col(\"country_code\")"
             } ],
             "comment" : null,
-            "enabled" : true
+            "enabled" : true,
+            "disabled" : false
           }, {
             "addReplaceColumn" : "account_flags",
             "functionName" : "column_expression",
@@ -355,7 +354,15 @@
               "expr" : "col(\"account_flags\")"
             } ],
             "comment" : null,
-            "enabled" : true
+            "enabled" : true,
+            "disabled" : false
+          }, {
+            "inputArgs" : [ {
+              "type" : "pass",
+              "expr" : "col(\"order_id\")"
+            } ],
+            "addReplaceColumn" : "order_id",
+            "disabled" : false
           } ],
           "limit" : 0
         },
@@ -440,7 +447,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1609941937488,
+      "lastUpdated" : 1609941940883,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,

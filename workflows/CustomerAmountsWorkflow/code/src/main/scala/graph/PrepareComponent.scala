@@ -22,7 +22,6 @@ object PrepareComponent {
 
     val out = in.select(
       datediff(current_date(), col("account_open_date")).as("account_length_days"),
-      col("order_id").as("order_id"),
       col("customer_id").as("customer_id"),
       col("amount").as("amount"),
       col("first_name").as("first_name"),
@@ -30,7 +29,8 @@ object PrepareComponent {
       col("phone").as("phone"),
       col("email").as("email"),
       col("country_code").as("country_code"),
-      col("account_flags").as("account_flags")
+      col("account_flags").as("account_flags"),
+      col("order_id").as("order_id")
     )
 
     out
