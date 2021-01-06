@@ -5,18 +5,13 @@
         "component" : "Join",
         "group" : null,
         "properties" : {
-          "src_desc" : "JoinComponent",
-          "phase" : 0,
-          "joinCondition" : {
-            "format" : "scala",
-            "expr" : "col(\"left.customer_id\") === col(\"right.customer_id\")"
-          },
           "selectColumns" : [ {
             "targetCol" : "account_open_date",
             "expression" : {
               "format" : "scala",
               "expr" : "col(\"right.account_open_date\")"
             },
+            "disabled" : false,
             "isLeftTableCol" : false
           }, {
             "targetCol" : "order_id",
@@ -24,6 +19,7 @@
               "format" : "scala",
               "expr" : "col(\"left.order_id\")"
             },
+            "disabled" : false,
             "isLeftTableCol" : true
           }, {
             "targetCol" : "customer_id",
@@ -31,6 +27,7 @@
               "format" : "scala",
               "expr" : "col(\"left.customer_id\")"
             },
+            "disabled" : false,
             "isLeftTableCol" : true
           }, {
             "targetCol" : "amount",
@@ -38,6 +35,7 @@
               "format" : "scala",
               "expr" : "col(\"left.amount\")"
             },
+            "disabled" : false,
             "isLeftTableCol" : true
           }, {
             "targetCol" : "first_name",
@@ -45,6 +43,7 @@
               "format" : "scala",
               "expr" : "col(\"right.first_name\")"
             },
+            "disabled" : false,
             "isLeftTableCol" : false
           }, {
             "targetCol" : "last_name",
@@ -52,6 +51,7 @@
               "format" : "scala",
               "expr" : "col(\"right.last_name\")"
             },
+            "disabled" : false,
             "isLeftTableCol" : false
           }, {
             "targetCol" : "phone",
@@ -59,6 +59,7 @@
               "format" : "scala",
               "expr" : "col(\"right.phone\")"
             },
+            "disabled" : false,
             "isLeftTableCol" : false
           }, {
             "targetCol" : "email",
@@ -66,6 +67,7 @@
               "format" : "scala",
               "expr" : "col(\"right.email\")"
             },
+            "disabled" : false,
             "isLeftTableCol" : false
           }, {
             "targetCol" : "country_code",
@@ -73,6 +75,7 @@
               "format" : "scala",
               "expr" : "col(\"right.country_code\")"
             },
+            "disabled" : false,
             "isLeftTableCol" : false
           }, {
             "targetCol" : "account_flags",
@@ -80,11 +83,14 @@
               "format" : "scala",
               "expr" : "col(\"right.account_flags\")"
             },
+            "disabled" : false,
             "isLeftTableCol" : false
           } ],
-          "ramp" : 0,
-          "joinType" : "inner",
-          "limit" : 0
+          "joinCondition" : {
+            "format" : "scala",
+            "expr" : "col(\"left.customer_id\") === col(\"right.customer_id\")"
+          },
+          "joinType" : "inner"
         },
         "metadata" : {
           "label" : "JoinComponent",
@@ -434,7 +440,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1609914447219,
+      "lastUpdated" : 1609914960260,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
